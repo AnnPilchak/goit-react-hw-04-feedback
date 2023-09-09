@@ -45,7 +45,7 @@ export default function App() {
                 <Section title="Statistics">
                     {total ? (
                         <Statistics
-                            good={good} neutral={neutral} bad={bad}
+                            stats={{ good, neutral, bad }}
                             total={total} positivePercentage={positivePercentage}>
                         </Statistics>
                     ) : (
