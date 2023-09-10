@@ -1,19 +1,8 @@
-import { Component } from "react";
 import { List, Button } from "./FeedbackOptions.styled";
 import PropTypes from "prop-types";
 
-class FeedbackOptions extends Component {
-    static defaultProps = {
-        options: [],
-    };
+const FeedbackOptions = ({options = [], onLeaveFeedback}) => {
 
-    static propTypes = {
-        onLeaveFeedback: PropTypes.func.isRequired,
-        options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    };
-
-    render() {
-        const { options, onLeaveFeedback } = this.props;
         return (
             <>
                 <List>
@@ -27,13 +16,13 @@ class FeedbackOptions extends Component {
                         );
                     })}
                 </List>
-
-                {/* <Button type="button" onClick={() => onLeaveFeedback('good')}>Good</Button>
-                <Button type="button" onClick={() => onLeaveFeedback('neutral')}>Neutral</Button>
-                <Button type="button" onClick={() => onLeaveFeedback('bad')}>Bad</Button> */}
             </>
         )
-    }
 };
 
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+    onLeaveFeedback: PropTypes.func.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
